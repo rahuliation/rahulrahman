@@ -1,21 +1,11 @@
-import { getPayload } from 'payload'
+import { getPayload, PaginatedDocs } from 'payload'
 import config from '@payload-config'
 import { Project, Media, Skill } from '@/payload-types'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { RichTextHTML } from '../RichTextHTML'
 
-export const ProjectComp = async () => {
-  const payload = await getPayload({ config })
-
-  // Fetch projects from the database
-  const projects = await payload.find({
-    collection: 'projects',
-    limit: 1000,
-    depth: 2, // Include related skills and media
-    sort: '-createdAt', // Sort by creation date, newest first
-  })
-
+export const ProjectComp = async ({ projects }: { projects: PaginatedDocs<Project> }) => {
   return (
     <div className="w-full max-w-7xl mx-auto px-4 py-8">
       <div className="mb-8">

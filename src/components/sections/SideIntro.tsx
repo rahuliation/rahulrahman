@@ -1,5 +1,3 @@
-import { getPayload } from 'payload'
-import config from '@payload-config'
 import { Media } from '@/payload-types'
 import { Avatar, AvatarFallback, AvatarImage } from '@radix-ui/react-avatar'
 import { ShimmeringText } from '../animate-ui/text/shimmering'
@@ -7,12 +5,16 @@ import { Mail, Phone, MapPin } from 'lucide-react'
 import { SocialIcons } from '../SocialIcons'
 import { ResumeButton } from '../ResumeButton'
 import { AddToContactsButton } from '../AddToContactsButton'
+import { getPayload } from 'payload'
+import config from '@payload-config'
 
 export const SideIntro = async () => {
   const payload = await getPayload({ config })
+
   const profile = await payload.findGlobal({
     slug: 'profile',
   })
+
   return (
     <div className="w-full h-full flex justify-center items-center">
       <div className="w-full flex flex-col">

@@ -1,33 +1,16 @@
-import { getPayload } from 'payload'
-import config from '@payload-config'
 import { Experience, Skill, Project } from '@/payload-types'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Calendar, Building2, MapPin } from 'lucide-react'
 import { RichTextHTML } from '../RichTextHTML'
+import { PaginatedDocs } from 'payload'
 
-export const ExperienceComp = async () => {
-  const payload = await getPayload({ config })
-
-  // Helper function to extract text from rich text
-  const extractTextFromRichText = (richText: any): string => {
-    if (!richText?.root?.children) return 'No description available'
-
-    return (
-      richText.root.children
-        .map((child: any) => child.text || '')
-        .join(' ')
-        .trim() || 'No description available'
-    )
-  }
-
+export const ExperienceComp = async ({
+  experiences,
+}: {
+  experiences: PaginatedDocs<Experience>
+}) => {
   // Fetch experiences from the database
-  const experiences = await payload.find({
-    collection: 'experiences',
-    limit: 1000,
-    depth: 2, // Include related skills and projects
-    sort: '-startDate', // Sort by start date, newest first
-  })
 
   const formatDate = (dateString: string) => {
     return new Date(dateString).toLocaleDateString('en-US', {

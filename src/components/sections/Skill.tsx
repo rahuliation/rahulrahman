@@ -1,24 +1,13 @@
-import { getPayload } from 'payload'
-import config from '../../payload.config.js'
+import { PaginatedDocs } from 'payload'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
+import { SkillCategory } from '@/payload-types.js'
 
-export const SkillComp = async () => {
-  const payload = await getPayload({ config })
-
-  // Fetch skill categories from the database
-  const skillCategories = await payload.find({
-    collection: 'skill-categories',
-    where: {
-      shouldDisplay: {
-        equals: true,
-      },
-    },
-    limit: 1000,
-    depth: 2, // Include the related skills
-    sort: 'sortIndex', // Sort by sortIndex field
-  })
-
+export const SkillComp = async ({
+  skillCategories,
+}: {
+  skillCategories: PaginatedDocs<SkillCategory>
+}) => {
   return (
     <div className="w-full max-w-7xl mx-auto px-16 py-8">
       <div className="mb-8">
