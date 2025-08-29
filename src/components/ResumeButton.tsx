@@ -16,7 +16,7 @@ export const ResumeButton = ({ cvLink }: ResumeButtonProps) => {
         variant="outline"
         size="lg"
         onClick={() => window.open(cvLink!, '_blank')}
-        className="gap-2 bg-[var(--heading-primary)] text-white/80"
+        className="cursor-pointer gap-2 bg-[var(--heading-primary)] text-white/80"
       >
         <Download className="w-4 h-4" />
         Download Resume

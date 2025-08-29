@@ -5,8 +5,12 @@ import { SkillComp } from '@/components/sections/Skill'
 import { IntroductionComp } from '@/components/sections/Introduction'
 import { ProjectComp } from '@/components/sections/Project'
 import { ExperienceComp } from '@/components/sections/Experinece'
+import { ContactComp } from '@/components/sections/Contact'
 import { getPayload } from 'payload'
 import config from '@payload-config'
+import { Element } from 'react-scroll'
+import Section from '@/components/Section'
+import { EducationComp } from '@/components/sections/Education'
 
 export default async function HomePage() {
   const payload = await getPayload({ config })
@@ -39,13 +43,37 @@ export default async function HomePage() {
     sort: '-createdAt', // Sort by creation date, newest first
   })
 
+  const educations = await payload.find({
+    collection: 'educations',
+    limit: 1000,
+    depth: 2, // Include related skills and media
+    sort: '-passingYear', // Sort by creation date, newest first
+  })
+
+  const profile = await payload.findGlobal({
+    slug: 'profile',
+  })
+
   return (
     <div className="w-full bg-[var(--background)] text-[var(--foreground)]">
-      <IntroductionComp />
-      <SkillComp skillCategories={skillCategories} />
-      <ExperienceComp experiences={experiences} />
-      <ProjectComp projects={projects} />
+      <Section name="Intro">
+        <IntroductionComp profile={profile} />
+      </Section>
+      <Section name="Skills">
+        <SkillComp skillCategories={skillCategories} />
+      </Section>
+      <Section name="Experience">
+        <ExperienceComp experiences={experiences} />
+      </Section>
+      <Section name="Projects">
+        <ProjectComp projects={projects} />
+      </Section>
+      <Section name="Education">
+        <EducationComp educations={educations} />
+      </Section>
+      <Section name="Contact">
+        <ContactComp />
+      </Section>
     </div>
   )
 }
-

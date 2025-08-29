@@ -16,7 +16,7 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
         <aside className="w-full fixed lg:w-1/4 h-dvh lg:h-screen bg-[var(--sidebar)] text-[var(--sidebar-foreground)]">
           <SideIntro />
         </aside>
-        <main className="h-full mt-[100dvh] lg:mt-0 ml-0 lg:ml-[25%] z-10">{children}</main>
+        <main className="h-full w-full mt-[100dvh] lg:mt-0 ml-0 lg:ml-[25%] z-10">{children}</main>
       </body>
     </html>
   )

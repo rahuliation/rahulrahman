@@ -7,6 +7,7 @@ import { ResumeButton } from '../ResumeButton'
 import { AddToContactsButton } from '../AddToContactsButton'
 import { getPayload } from 'payload'
 import config from '@payload-config'
+import { ArrowDownButton } from '../ArrowDownButton'
 
 export const SideIntro = async () => {
   const payload = await getPayload({ config })
@@ -40,7 +41,7 @@ export const SideIntro = async () => {
         </div>
 
         {/* Contact Information */}
-        <div className="mt-6 space-y-3">
+        <div className="mt-6 space-y-3 text-white/80">
           {profile.email && (
             <div className="flex items-center justify-center gap-2 text-sm">
               <Mail className="w-4 h-4" />
@@ -78,6 +79,9 @@ export const SideIntro = async () => {
           designation={profile.designation || undefined}
           imageUrl={(profile.image as Media).url || undefined}
         />
+        <div className="flex justify-center mt-12 md:hidden">
+          <ArrowDownButton to="Intro" />
+        </div>
       </div>
     </div>
   )

@@ -51,7 +51,7 @@ export const ExperienceComp = async ({
                       <span>{experience.companyName}</span>
                     </div>
                   </div>
-                  <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                  <div className="flex items-center gap-2 text-sm text-white/80">
                     <Calendar className="w-4 h-4" />
                     <span>
                       {formatDate(experience.startDate)} -{' '}
@@ -62,7 +62,7 @@ export const ExperienceComp = async ({
               </CardHeader>
               <CardContent>
                 <div className="prose prose-sm dark:prose-invert max-w-none mb-4">
-                  <p className="text-muted-foreground">
+                  <p className="text-muted-foreground text-white/70">
                     {experience.description && <RichTextHTML data={experience.description} />}
                   </p>
                 </div>
