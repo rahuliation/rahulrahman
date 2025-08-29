@@ -1,5 +1,4 @@
 // storage-adapter-import-placeholder
-import { payloadCloudPlugin } from '@payloadcms/payload-cloud'
 import { lexicalEditor } from '@payloadcms/richtext-lexical'
 import path from 'path'
 import { buildConfig } from 'payload'
@@ -42,7 +41,6 @@ export default buildConfig({
   }),
   sharp,
   plugins: [
-    payloadCloudPlugin(),
     // storage-adapter-placeholder
     vercelBlobStorage({
       enabled: true, // Optional, defaults to true
@@ -51,7 +49,7 @@ export default buildConfig({
         media: true,
       },
       // Token provided by Vercel once Blob storage is added to your Vercel project
-      token: process.env.BLOB_READ_WRITE_TOKEN,
+      token: process.env.BLOB_READ_WRITE_TOKEN ?? '',
     }),
   ],
 })

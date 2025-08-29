@@ -1,10 +1,11 @@
 import React from 'react'
 import './styles.css'
 import { SideIntro } from '@/components/sections/SideIntro'
+import { Metadata } from 'next'
 
-export const metadata = {
-  description: 'A blank template using Payload in a Next.js app.',
-  title: 'Payload Blank Template',
+export const metadata: Metadata = {
+  description: 'Rahul Rahman , A  Mern Developer',
+  title: 'Rahul Rahman Portfolio',
 }
 
 export default async function RootLayout(props: { children: React.ReactNode }) {

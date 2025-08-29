@@ -1,7 +1,7 @@
 {
   "name": "rahulrahman",
   "version": "1.0.0",
-  "description": "A blank template to get started with Payload 3.0",
+  "description": "Rahul Rahman Portfolio",
   "license": "MIT",
   "type": "module",
   "scripts": {
@@ -22,11 +22,9 @@
     "@payloadcms/db-postgres": "3.53.0",
     "@payloadcms/db-vercel-postgres": "^3.53.0",
     "@payloadcms/next": "3.53.0",
-    "@payloadcms/payload-cloud": "3.53.0",
     "@payloadcms/richtext-lexical": "3.53.0",
-    "@payloadcms/storage-s3": "^3.53.0",
     "@payloadcms/storage-vercel-blob": "^3.54.0",
-    "@payloadcms/ui": "3.53.0",
+    "@payloadcms/ui": "3.51.0",
     "@radix-ui/react-avatar": "^1.1.10",
     "@radix-ui/react-dialog": "^1.1.15",
     "@radix-ui/react-dropdown-menu": "^2.1.16",

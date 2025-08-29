@@ -67,5 +67,27 @@ export const Profile: GlobalConfig = {
       name: 'cvLink',
       type: 'text',
     },
+    {
+      name: 'introCard',
+      type: 'array',
+      fields: [
+        {
+          name: 'title',
+          type: 'text',
+        },
+        {
+          name: 'subtitle',
+          type: 'text',
+        },
+        {
+          name: 'description',
+          type: 'textarea',
+        },
+        {
+          name: 'icon',
+          type: 'code',
+        },
+      ],
+    },
   ],
 }

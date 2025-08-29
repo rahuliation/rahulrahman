@@ -557,6 +557,15 @@ export interface Profile {
   linkedinLink?: string | null;
   twitterLink?: string | null;
   cvLink?: string | null;
+  introCard?:
+    | {
+        title?: string | null;
+        subtitle?: string | null;
+        description?: string | null;
+        icon?: string | null;
+        id?: string | null;
+      }[]
+    | null;
   updatedAt?: string | null;
   createdAt?: string | null;
 }
@@ -579,6 +588,15 @@ export interface ProfileSelect<T extends boolean = true> {
   linkedinLink?: T;
   twitterLink?: T;
   cvLink?: T;
+  introCard?:
+    | T
+    | {
+        title?: T;
+        subtitle?: T;
+        description?: T;
+        icon?: T;
+        id?: T;
+      };
   updatedAt?: T;
   createdAt?: T;
   globalType?: T;
