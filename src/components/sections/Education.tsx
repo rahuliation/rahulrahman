@@ -41,7 +41,7 @@ export const EducationComp = async ({ educations }: { educations: PaginatedDocs<
                       </div>
                     )}
                   </div>
-                  <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                  <div className="flex items-center gap-2 text-sm text-white/80">
                     <Calendar className="w-4 h-4" />
                     <span>{education.yearOfPassing}</span>
                   </div>
@@ -49,7 +49,7 @@ export const EducationComp = async ({ educations }: { educations: PaginatedDocs<
               </CardHeader>
               <CardContent>
                 <div className="prose prose-sm dark:prose-invert max-w-none">
-                  <p className="text-muted-foreground">
+                  <p className="text-white/70">
                     Successfully completed {education.degree} from {education.institution} in{' '}
                     {education.yearOfPassing}
                     {education.board && ` under ${education.board}`}.

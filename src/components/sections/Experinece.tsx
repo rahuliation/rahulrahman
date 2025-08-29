@@ -63,7 +63,9 @@ export const ExperienceComp = async ({
               <CardContent>
                 <div className="prose prose-sm dark:prose-invert max-w-none mb-4">
                   <p className="text-muted-foreground text-white/70">
-                    {experience.description && <RichTextHTML data={experience.description} />}
+                    {experience.description && (
+                      <RichTextHTML shouldColapse={true} data={experience.description} />
+                    )}
                   </p>
                 </div>
 
