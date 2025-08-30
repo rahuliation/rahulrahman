@@ -228,6 +228,7 @@ export interface Project {
   projectUrl?: string | null;
   image: number | Media;
   skills?: (number | Skill)[] | null;
+  orderIndex: number;
   updatedAt: string;
   createdAt: string;
 }
@@ -448,6 +449,7 @@ export interface ProjectsSelect<T extends boolean = true> {
   projectUrl?: T;
   image?: T;
   skills?: T;
+  orderIndex?: T;
   updatedAt?: T;
   createdAt?: T;
 }
@@ -532,7 +534,12 @@ export interface Profile {
   name: string;
   email: string;
   designation?: string | null;
-  coreSkills?: (number | Skill)[] | null;
+  coreSkills?:
+    | {
+        skill?: (number | null) | Skill;
+        id?: string | null;
+      }[]
+    | null;
   expertise?: string | null;
   startedWorking?: string | null;
   location?: string | null;
@@ -557,12 +564,22 @@ export interface Profile {
   linkedinLink?: string | null;
   twitterLink?: string | null;
   cvLink?: string | null;
+  introTitle?: string | null;
+  introSubtitle?: string | null;
   introCard?:
     | {
         title?: string | null;
         subtitle?: string | null;
         description?: string | null;
         icon?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  contactTitle?: string | null;
+  contactSubtitle?: string | null;
+  contactFor?:
+    | {
+        label?: string | null;
         id?: string | null;
       }[]
     | null;
@@ -577,7 +594,12 @@ export interface ProfileSelect<T extends boolean = true> {
   name?: T;
   email?: T;
   designation?: T;
-  coreSkills?: T;
+  coreSkills?:
+    | T
+    | {
+        skill?: T;
+        id?: T;
+      };
   expertise?: T;
   startedWorking?: T;
   location?: T;
@@ -588,6 +610,8 @@ export interface ProfileSelect<T extends boolean = true> {
   linkedinLink?: T;
   twitterLink?: T;
   cvLink?: T;
+  introTitle?: T;
+  introSubtitle?: T;
   introCard?:
     | T
     | {
@@ -595,6 +619,14 @@ export interface ProfileSelect<T extends boolean = true> {
         subtitle?: T;
         description?: T;
         icon?: T;
+        id?: T;
+      };
+  contactTitle?: T;
+  contactSubtitle?: T;
+  contactFor?:
+    | T
+    | {
+        label?: T;
         id?: T;
       };
   updatedAt?: T;

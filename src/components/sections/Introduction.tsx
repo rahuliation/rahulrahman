@@ -1,4 +1,4 @@
-import { Profile } from '@/payload-types'
+import { Profile, Skill } from '@/payload-types'
 import { Badge } from '../ui/badge'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../ui/card'
 import { ArrowDownButton } from '../ArrowDownButton'
@@ -12,28 +12,20 @@ export const IntroductionComp = async ({ profile }: { profile: Profile }) => {
         {/* Hero Section */}
         <div className="text-center mb-16 w-full">
           <h1 className="text-4xl md:text-7xl py-2 mx-auto w-4/5 lg:w-2/3  font-extrabold bg-[var(--heading-primary)] text-white/80 tracking-tight text-balance mb-6">
-            Welcome, I'm Rahul
+            {profile.introTitle}
           </h1>
-          <p className="text-xl md:text-2xl text-slate-600 dark:text-slate-300 mb-8 max-w-3xl mx-auto">
-            A passionate MERN Stack Developer crafting digital experiences with modern web
-            technologies
+          <p className="text-xl md:text-2xl text-stone-900 dark:text-slate-300 mb-8 max-w-3xl mx-auto">
+            {profile.introSubtitle}
           </p>
           <div className="flex flex-wrap justify-center gap-2 mb-8">
-            <Badge variant="secondary" className="text-sm px-4 py-2">
-              MongoDB
-            </Badge>
-            <Badge variant="secondary" className="text-sm px-4 py-2">
-              Express.js
-            </Badge>
-            <Badge variant="secondary" className="text-sm px-4 py-2">
-              React.js
-            </Badge>
-            <Badge variant="secondary" className="text-sm px-4 py-2">
-              Node.js
-            </Badge>
-            <Badge variant="secondary" className="text-sm px-4 py-2">
-              TypeScript
-            </Badge>
+            {profile.coreSkills?.map((cskill) => (
+              <Badge
+                variant="outline"
+                className="text-sm px-4 font-extrabold py-4 border-[var(--heading-primary)]"
+              >
+                {(cskill.skill as Skill)?.name}
+              </Badge>
+            ))}
           </div>
         </div>
 
@@ -50,10 +42,10 @@ export const IntroductionComp = async ({ profile }: { profile: Profile }) => {
                     className={`w-16 h-16 p-1 bg-gradient-to-br bg-[var(--background-secondary)] rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300`}
                     dangerouslySetInnerHTML={{ __html: card.icon || '' }}
                   />
-                  <CardTitle className="text-xl text-white/70">{card.title}</CardTitle>
+                  <CardTitle className="text-xl md:xxl text-white/70">{card.title}</CardTitle>
                 </CardHeader>
                 <CardContent className="text-center">
-                  <CardDescription className="text-lg font-medium text-white/80 dark:text-slate-300">
+                  <CardDescription className="text-md font-medium text-white/80 dark:text-slate-300">
                     {card.subtitle}
                   </CardDescription>
                   <p className="hidden md:block text-sm text-white/60 dark:text-slate-400 mt-2">

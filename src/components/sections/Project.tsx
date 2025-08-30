@@ -31,10 +31,24 @@ export const ProjectComp = async ({ projects }: { projects: PaginatedDocs<Projec
                 <CardTitle className="text-xl font-semibold text-white/70">
                   {project.name}
                 </CardTitle>
+                {project.subtitle && (
+                  <p className="text-sm text-white/50 font-medium">{project.subtitle}</p>
+                )}
               </CardHeader>
               <CardContent>
                 <div className="flex h-full gap-4">
                   <div className="flex flex-col gap-4">
+                    {project.responsibilities && (
+                      <div className="mb-4">
+                        <h4 className="text-sm font-semibold text-white/70 mb-2">
+                          Responsibilities:
+                        </h4>
+                        <p className="text-sm text-white/50 whitespace-pre-line">
+                          {project.responsibilities}
+                        </p>
+                      </div>
+                    )}
+
                     <div className="prose prose-sm dark:prose-invert text-white/50 max-w-none mb-4">
                       {project.description && <RichTextHTML data={project.description} />}
                     </div>
@@ -55,11 +69,26 @@ export const ProjectComp = async ({ projects }: { projects: PaginatedDocs<Projec
                   </div>
                   <div className="w-2/5 h-full flex items-center">
                     <div className="overflow-hidden flex items-center">
-                      <img
-                        src={projectImage?.url || ''}
-                        alt={projectImage?.alt || project.name}
-                        className="w-full object-cover group-hover:scale-105 transition-transform duration-300"
-                      />
+                      {project.projectUrl ? (
+                        <a
+                          href={project.projectUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="cursor-pointer block"
+                        >
+                          <img
+                            src={projectImage?.url || ''}
+                            alt={projectImage?.alt || project.name}
+                            className="w-full object-cover group-hover:scale-105 transition-transform duration-300"
+                          />
+                        </a>
+                      ) : (
+                        <img
+                          src={projectImage?.url || ''}
+                          alt={projectImage?.alt || project.name}
+                          className="w-full object-cover group-hover:scale-105 transition-transform duration-300"
+                        />
+                      )}
                     </div>
                   </div>
                 </div>

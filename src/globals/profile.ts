@@ -19,9 +19,15 @@ export const Profile: GlobalConfig = {
     },
     {
       name: 'coreSkills',
-      type: 'relationship',
-      relationTo: 'skills',
-      hasMany: true,
+      type: 'array',
+      fields: [
+        {
+          name: 'skill',
+          type: 'relationship',
+          relationTo: 'skills',
+          hasMany: false,
+        },
+      ],
     },
     {
       name: 'expertise',
@@ -68,6 +74,11 @@ export const Profile: GlobalConfig = {
       type: 'text',
     },
     {
+      name: 'introTitle',
+      type: 'text',
+    },
+    { name: 'introSubtitle', type: 'text' },
+    {
       name: 'introCard',
       type: 'array',
       fields: [
@@ -86,6 +97,24 @@ export const Profile: GlobalConfig = {
         {
           name: 'icon',
           type: 'code',
+        },
+      ],
+    },
+    {
+      name: 'contactTitle',
+      type: 'text',
+    },
+    {
+      name: 'contactSubtitle',
+      type: 'text',
+    },
+    {
+      name: 'contactFor',
+      type: 'array',
+      fields: [
+        {
+          name: 'label',
+          type: 'text',
         },
       ],
     },

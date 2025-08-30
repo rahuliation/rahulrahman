@@ -48,5 +48,10 @@ export const Projects: CollectionConfig = {
       relationTo: 'skills',
       hasMany: true,
     },
+    {
+      name: 'orderIndex',
+      type: 'number',
+      required: true,
+    },
   ],
 }

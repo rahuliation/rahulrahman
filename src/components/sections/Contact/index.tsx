@@ -6,8 +6,9 @@ import { Input } from '@/components/ui/input'
 import { CardContent, CardDescription, CardHeader, CardTitle, Card } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
+import { Profile } from '@/payload-types'
 
-export const ContactComp = () => {
+export const ContactComp = ({ profile }: { profile: Profile }) => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -52,21 +53,17 @@ export const ContactComp = () => {
         {/* Header Section */}
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-6xl py-2 font-extrabold bg-[var(--sidebar-foreground)] text-[var(--heading-primary)] tracking-tight text-balance mb-6">
-            Get In Touch
+            {profile.contactTitle}
           </h2>
           <p className="text-xl md:text-2xl text-white/80 dark:text-slate-300 mb-8 max-w-3xl mx-auto">
-            Let's discuss your next project or just say hello!
+            {profile.contactSubtitle}
           </p>
           <div className="flex flex-wrap justify-center gap-2 mb-8">
-            <Badge variant="secondary" className="text-sm px-4 py-2">
-              Available for Freelance
-            </Badge>
-            <Badge variant="secondary" className="text-sm px-4 py-2">
-              Open to Opportunities
-            </Badge>
-            <Badge variant="secondary" className="text-sm px-4 py-2">
-              Quick Response
-            </Badge>
+            {profile.contactFor?.map((reason) => (
+              <Badge variant="outline" className="text-sm text-white/70 px-4 py-4">
+                {reason.label}
+              </Badge>
+            ))}
           </div>
         </div>
 

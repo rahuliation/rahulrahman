@@ -40,7 +40,7 @@ export default async function HomePage() {
     collection: 'projects',
     limit: 1000,
     depth: 2, // Include related skills and media
-    sort: '-createdAt', // Sort by creation date, newest first
+    sort: '-order', // Sort by creation date, newest first
   })
 
   const educations = await payload.find({
@@ -72,7 +72,7 @@ export default async function HomePage() {
         <EducationComp educations={educations} />
       </Section>
       <Section name="Contact">
-        <ContactComp />
+        <ContactComp profile={profile} />
       </Section>
     </div>
   )
