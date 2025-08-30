@@ -1,0 +1,7 @@
+User-agent: *
+Disallow: /api
+
+# Allow all crawlers
+User-agent: *
+Allow: /
+
