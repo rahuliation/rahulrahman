@@ -1,18 +1,32 @@
 import { Education } from '@/payload-types'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
-import { Calendar, GraduationCap, MapPin } from 'lucide-react'
+import { Calendar, GraduationCap, MapPin, BookOpen, Zap } from 'lucide-react'
 import { RichTextHTML } from '../RichTextHTML'
 import { PaginatedDocs } from 'payload'
+import { ShimmeringText } from '../animate-ui/text/shimmering'
 
 export const EducationComp = async ({ educations }: { educations: PaginatedDocs<Education> }) => {
   return (
-    <div className="w-full max-w-7xl mx-auto px-16 py-8">
-      <div className="mb-8">
-        <h2 className="text-4xl md:text-5xl text-center font-extrabold text-[var(--heading-primary)] tracking-tight text-balance mb-6">
-          Education
+    <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-16 py-12">
+      {/* Header Section */}
+      <div className="text-center mb-16">
+        <div className="inline-flex items-center gap-2 bg-[var(--background-secondary)]/20 backdrop-blur-sm border border-[var(--background-secondary)]/30 rounded-full px-6 py-2 mb-6">
+          <BookOpen className="w-5 h-5 text-[var(--heading-primary)]" />
+          <span className="text-sm font-medium text-[var(--heading-primary)]">
+            Academic Journey
+          </span>
+        </div>
+        <h2 className="text-4xl md:text-6xl font-extrabold text-[var(--heading-primary)] tracking-tight mb-6">
+          <ShimmeringText
+            text="Education"
+            duration={2}
+            className="text-4xl md:text-6xl font-extrabold tracking-tight"
+            color="var(--heading-primary)"
+            shimmeringColor="var(--background-secondary)"
+          />
         </h2>
-        <p className="text-muted-foreground text-center max-w-2xl mx-auto">
+        <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
           My academic background and educational achievements
         </p>
       </div>

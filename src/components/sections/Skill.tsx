@@ -2,6 +2,8 @@ import { PaginatedDocs } from 'payload'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { SkillCategory } from '@/payload-types.js'
+import { Award, Code, Zap } from 'lucide-react'
+import { ShimmeringText } from '../animate-ui/text/shimmering'
 
 export const SkillComp = async ({
   skillCategories,
@@ -9,12 +11,25 @@ export const SkillComp = async ({
   skillCategories: PaginatedDocs<SkillCategory>
 }) => {
   return (
-    <div className="w-full min-h-screen px-16 py-8">
-      <div className="mb-8">
-        <h2 className="text-4xl md:text-5xl text-center font-extrabold text-[var(--heading-primary)] tracking-tight text-balance mb-6">
-          Skills & Technologies
+    <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-16 py-12">
+      {/* Header Section */}
+      <div className="text-center mb-16">
+        <div className="inline-flex items-center gap-2 bg-[var(--background-secondary)]/20 backdrop-blur-sm border border-[var(--background-secondary)]/30 rounded-full px-6 py-2 mb-6">
+          <Code className="w-5 h-5 text-[var(--heading-primary)]" />
+          <span className="text-sm font-medium text-[var(--heading-primary)]">
+            Technical Expertise
+          </span>
+        </div>
+        <h2 className="text-4xl md:text-6xl font-extrabold text-[var(--heading-primary)] tracking-tight mb-6">
+          <ShimmeringText
+            text="Skills & Technologies"
+            duration={2}
+            className="text-4xl md:text-6xl font-extrabold tracking-tight"
+            color="var(--heading-primary)"
+            shimmeringColor="var(--background-secondary)"
+          />
         </h2>
-        <p className="text-muted-foreground text-center max-w-2xl mx-auto">
+        <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
           A comprehensive overview of the technologies, frameworks, and tools I work with
         </p>
       </div>
@@ -23,7 +38,7 @@ export const SkillComp = async ({
         {skillCategories.docs.map((category, index) => (
           <Card
             key={index}
-            className="`group hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border-0 dark:bg-slate-800/80 backdrop-blur-sm"
+            className="group hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border-0 dark:bg-slate-800/80 backdrop-blur-sm"
           >
             <CardHeader>
               <CardTitle className="text-xl font-semibold text-white/70">{category.name}</CardTitle>

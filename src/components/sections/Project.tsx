@@ -4,17 +4,31 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { RichTextHTML } from '../RichTextHTML'
 import { Button } from '@/components/ui/button'
-import { ExternalLink } from 'lucide-react'
+import { ExternalLink, FolderOpen, Zap } from 'lucide-react'
+import { ShimmeringText } from '../animate-ui/text/shimmering'
 
 export const ProjectComp = async ({ projects }: { projects: PaginatedDocs<Project> }) => {
   return (
-    <div className="w-full min-h-screen px-4 sm:px-8 lg:px-16 py-12">
-      <div className="mb-16">
-        <h2 className="text-4xl md:text-5xl text-center font-bold text-[var(--heading-primary)] tracking-tight mb-4">
-          Portfolio
+    <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-16 py-12">
+      {/* Header Section */}
+      <div className="text-center mb-16">
+        <div className="inline-flex items-center gap-2 bg-[var(--background-secondary)]/20 backdrop-blur-sm border border-[var(--background-secondary)]/30 rounded-full px-6 py-2 mb-6">
+          <FolderOpen className="w-5 h-5 text-[var(--heading-primary)]" />
+          <span className="text-sm font-medium text-[var(--heading-primary)]">
+            Creative Portfolio
+          </span>
+        </div>
+        <h2 className="text-4xl md:text-6xl font-extrabold text-[var(--heading-primary)] tracking-tight mb-6">
+          <ShimmeringText
+            text="Portfolio"
+            duration={2}
+            className="text-4xl md:text-6xl font-extrabold tracking-tight"
+            color="var(--heading-primary)"
+            shimmeringColor="var(--background-secondary)"
+          />
         </h2>
-        <p className="text-muted-foreground text-center max-w-2xl mx-auto text-lg">
-          A showcase of my recent projects and work
+        <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+          A showcase of my recent projects and innovative work
         </p>
       </div>
 
