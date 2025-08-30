@@ -1,7 +1,7 @@
 'use client'
 
 import * as React from 'react'
-import { motion, useMotionValue, useSpring, useTransform } from 'motion/react'
+import { motion, useMotionValue, useSpring, useTransform, HTMLMotionProps } from 'motion/react'
 import { cn } from '@/lib/utils'
 
 type MagneticButtonProps = {
@@ -9,7 +9,10 @@ type MagneticButtonProps = {
   className?: string
   strength?: number
   childrenClassName?: string
-} & React.ButtonHTMLAttributes<HTMLButtonElement>
+} & Omit<
+  HTMLMotionProps<'button'>,
+  'onAnimationStart' | 'onAnimationComplete' | 'onAnimationCancel'
+>
 
 function MagneticButton({
   children,

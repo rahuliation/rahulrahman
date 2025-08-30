@@ -22,10 +22,10 @@
     "@payloadcms/db-postgres": "3.53.0",
     "@payloadcms/db-vercel-postgres": "^3.53.0",
     "@payloadcms/next": "3.53.0",
+    "@payloadcms/plugin-cloud-storage": "3.53.0",
     "@payloadcms/richtext-lexical": "3.53.0",
     "@payloadcms/storage-vercel-blob": "3.53.0",
     "@payloadcms/ui": "3.53.0",
-    "@payloadcms/plugin-cloud-storage": "3.53.0",
     "@radix-ui/react-avatar": "^1.1.10",
     "@radix-ui/react-dialog": "^1.1.15",
     "@radix-ui/react-dropdown-menu": "^2.1.16",
@@ -51,6 +51,7 @@
     "tailwindcss": "^4.1.12"
   },
   "devDependencies": {
+    "@eslint/eslintrc": "^3.3.1",
     "@playwright/test": "1.54.1",
     "@testing-library/react": "16.3.0",
     "@types/node": "^22.5.4",

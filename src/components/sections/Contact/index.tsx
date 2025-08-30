@@ -40,7 +40,7 @@ export const ContactComp = ({ profile }: { profile: Profile }) => {
       } else {
         setSubmitStatus('error')
       }
-    } catch (error) {
+    } catch (_error) {
       setSubmitStatus('error')
     } finally {
       setIsSubmitting(false)
@@ -60,7 +60,7 @@ export const ContactComp = ({ profile }: { profile: Profile }) => {
           </p>
           <div className="flex flex-wrap justify-center gap-2 mb-8">
             {profile.contactFor?.map((reason) => (
-              <Badge variant="outline" className="text-sm text-white/70 px-4 py-4">
+              <Badge key={reason.id} variant="outline" className="text-sm text-white/70 px-4 py-4">
                 {reason.label}
               </Badge>
             ))}
@@ -72,7 +72,7 @@ export const ContactComp = ({ profile }: { profile: Profile }) => {
           <CardHeader className="text-center">
             <CardTitle className="text-2xl text-white/70">Send me a message</CardTitle>
             <CardDescription className="text-lg text-white/60 dark:text-slate-400">
-              I'll get back to you as soon as possible
+              I&apos;ll get back to you as soon as possible
             </CardDescription>
           </CardHeader>
           <CardContent>
@@ -144,7 +144,7 @@ export const ContactComp = ({ profile }: { profile: Profile }) => {
               {submitStatus === 'success' && (
                 <div className="p-4 bg-green-500/20 border border-green-500/30 rounded-md">
                   <p className="text-green-400 text-center">
-                    Message sent successfully! I'll get back to you soon.
+                    Message sent successfully! I&apos;ll get back to you soon.
                   </p>
                 </div>
               )}
