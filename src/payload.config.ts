@@ -16,6 +16,7 @@ import { Educations } from './collections/Educations'
 import { Contacts } from './collections/Contacts'
 import { vercelBlobStorage } from '@payloadcms/storage-vercel-blob'
 import { vercelPostgresAdapter } from '@payloadcms/db-vercel-postgres'
+import { SEO } from './globals/seo'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -28,7 +29,7 @@ export default buildConfig({
     },
   },
   collections: [Users, Media, SkillCategories, Skills, Projects, Experiences, Educations, Contacts],
-  globals: [Profile],
+  globals: [Profile, SEO],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',
   typescript: {

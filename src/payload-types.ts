@@ -98,9 +98,11 @@ export interface Config {
   };
   globals: {
     profile: Profile;
+    seo: Seo;
   };
   globalsSelect: {
     profile: ProfileSelect<false> | ProfileSelect<true>;
+    seo: SeoSelect<false> | SeoSelect<true>;
   };
   locale: null;
   user: User & {
@@ -588,6 +590,54 @@ export interface Profile {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "seo".
+ */
+export interface Seo {
+  id: number;
+  siteTitle: string;
+  siteDescription: string;
+  siteUrl: string;
+  siteName: string;
+  siteImage?: (number | null) | Media;
+  favicon?: (number | null) | Media;
+  appleTouchIcon?: (number | null) | Media;
+  googleAnalyticsId?: string | null;
+  googleTagManagerId?: string | null;
+  googleSiteVerification?: string | null;
+  bingSiteVerification?: string | null;
+  robotsTxt?: string | null;
+  additionalMetaTags?:
+    | {
+        name?: string | null;
+        content?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  structuredData?: {
+    personSchema?: {
+      name?: string | null;
+      jobTitle?: string | null;
+      description?: string | null;
+      url?: string | null;
+      image?: (number | null) | Media;
+      sameAs?:
+        | {
+            url?: string | null;
+            id?: string | null;
+          }[]
+        | null;
+    };
+    websiteSchema?: {
+      name?: string | null;
+      description?: string | null;
+      url?: string | null;
+    };
+  };
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "profile_select".
  */
 export interface ProfileSelect<T extends boolean = true> {
@@ -628,6 +678,60 @@ export interface ProfileSelect<T extends boolean = true> {
     | {
         label?: T;
         id?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "seo_select".
+ */
+export interface SeoSelect<T extends boolean = true> {
+  siteTitle?: T;
+  siteDescription?: T;
+  siteUrl?: T;
+  siteName?: T;
+  siteImage?: T;
+  favicon?: T;
+  appleTouchIcon?: T;
+  googleAnalyticsId?: T;
+  googleTagManagerId?: T;
+  googleSiteVerification?: T;
+  bingSiteVerification?: T;
+  robotsTxt?: T;
+  additionalMetaTags?:
+    | T
+    | {
+        name?: T;
+        content?: T;
+        id?: T;
+      };
+  structuredData?:
+    | T
+    | {
+        personSchema?:
+          | T
+          | {
+              name?: T;
+              jobTitle?: T;
+              description?: T;
+              url?: T;
+              image?: T;
+              sameAs?:
+                | T
+                | {
+                    url?: T;
+                    id?: T;
+                  };
+            };
+        websiteSchema?:
+          | T
+          | {
+              name?: T;
+              description?: T;
+              url?: T;
+            };
       };
   updatedAt?: T;
   createdAt?: T;

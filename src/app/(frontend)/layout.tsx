@@ -2,10 +2,25 @@ import React from 'react'
 import './styles.css'
 import { SideIntro } from '@/components/sections/SideIntro'
 import { Metadata } from 'next'
+import { getPayload } from 'payload'
+import config from '@payload-config'
+import { generateMetadata as generateSEOMetadata } from '@/components/SEOHead'
 
-export const metadata: Metadata = {
-  description: 'Rahul Rahman , A  Mern Developer',
-  title: 'Rahul Rahman Portfolio',
+export async function generateMetadata(): Promise<Metadata> {
+  try {
+    const payload = await getPayload({ config })
+    const seo = await payload.findGlobal({
+      slug: 'seo',
+    })
+
+    return generateSEOMetadata(seo)
+  } catch (error) {
+    console.error('Error fetching SEO data:', error)
+    return {
+      title: 'Rahul Rahman Portfolio',
+      description: 'Rahul Rahman - A MERN Stack Developer',
+    }
+  }
 }
 
 export default async function RootLayout(props: { children: React.ReactNode }) {
