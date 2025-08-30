@@ -74,7 +74,8 @@ Sitemap: https://rahulrahman.com/sitemap.xml`,
     } else {
       console.log('Creating SEO global...')
 
-      await payload.createGlobal({
+      // In newer versions of Payload, we need to use updateGlobal with upsert
+      await payload.updateGlobal({
         slug: 'seo',
         data: {
           siteTitle: 'Rahul Rahman Portfolio',
