@@ -1,99 +1,138 @@
-import { getPayload, PaginatedDocs } from 'payload'
-import config from '@payload-config'
+import { PaginatedDocs } from 'payload'
 import { Project, Media, Skill } from '@/payload-types'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { RichTextHTML } from '../RichTextHTML'
+import { Button } from '@/components/ui/button'
+import { ExternalLink } from 'lucide-react'
 
 export const ProjectComp = async ({ projects }: { projects: PaginatedDocs<Project> }) => {
   return (
-    <div className="w-full max-w-7xl mx-auto px-4 py-8">
-      <div className="mb-8">
-        <h2 className="text-4xl md:text-5xl text-center font-extrabold text-[var(--heading-primary)] tracking-tight text-balance mb-6">
-          Projects
+    <div className="w-full min-h-screen px-4 sm:px-8 lg:px-16 py-12">
+      <div className="mb-16">
+        <h2 className="text-4xl md:text-5xl text-center font-bold text-[var(--heading-primary)] tracking-tight mb-4">
+          Portfolio
         </h2>
-        <p className="text-muted-foreground text-center max-w-2xl mx-auto">
+        <p className="text-muted-foreground text-center max-w-2xl mx-auto text-lg">
           A showcase of my recent projects and work
         </p>
       </div>
 
-      <div className="grid grid-cols-1 gap-6">
-        {projects.docs.map((project: Project) => {
+      <div className="max-w-6xl mx-auto space-y-16">
+        {projects.docs.map((project: Project, index: number) => {
           const projectImage = project.image as Media
           const projectSkills = project.skills as Skill[]
 
           return (
-            <Card
+            <div
               key={project.id}
-              className="group hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border-0 dark:bg-slate-800/80 backdrop-blur-sm overflow-hidden"
+              className={`flex flex-col lg:flex-row gap-8 lg:gap-12 items-start ${
+                index % 2 === 1 ? 'lg:flex-row-reverse' : ''
+              }`}
             >
-              <CardHeader>
-                <CardTitle className="text-xl font-semibold text-white/70">
-                  {project.name}
-                </CardTitle>
-                {project.subtitle && (
-                  <p className="text-sm text-white/50 font-medium">{project.subtitle}</p>
-                )}
-              </CardHeader>
-              <CardContent>
-                <div className="flex h-full gap-4">
-                  <div className="flex flex-col gap-4">
-                    {project.responsibilities && (
-                      <div className="mb-4">
-                        <h4 className="text-sm font-semibold text-white/70 mb-2">
-                          Responsibilities:
-                        </h4>
-                        <p className="text-sm text-white/50 whitespace-pre-line">
-                          {project.responsibilities}
-                        </p>
-                      </div>
-                    )}
-
-                    <div className="prose prose-sm dark:prose-invert text-white/50 max-w-none mb-4">
-                      {project.description && <RichTextHTML data={project.description} />}
-                    </div>
-
-                    {projectSkills && projectSkills.length > 0 && (
-                      <div className="flex flex-wrap gap-2">
-                        {projectSkills.map((skill: Skill, skillIndex: number) => (
-                          <Badge
-                            key={skillIndex}
-                            variant="secondary"
-                            className="text-xs text-white bg-[var(--background-secondary)] text-[var(--sidebar)] px-3 py-1"
-                          >
-                            {skill.name}
-                          </Badge>
-                        ))}
-                      </div>
-                    )}
-                  </div>
-                  <div className="w-2/5 h-full flex items-center">
-                    <div className="overflow-hidden flex items-center">
+              {/* Image Section */}
+              <div className="w-full lg:w-1/2">
+                <div className="relative overflow-hidden rounded-lg shadow-lg">
+                  {projectImage?.url ? (
+                    <div className="aspect-[4/3] relative bg-slate-50 dark:bg-slate-800 flex items-center justify-center">
                       {project.projectUrl ? (
                         <a
                           href={project.projectUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="cursor-pointer block"
+                          className="block w-full h-full group flex items-center justify-center"
                         >
                           <img
-                            src={projectImage?.url || ''}
-                            alt={projectImage?.alt || project.name}
-                            className="w-full object-cover group-hover:scale-105 transition-transform duration-300"
+                            src={projectImage.url}
+                            alt={projectImage.alt || project.name}
+                            className="max-w-[60%] max-h-[60%] object-contain transition-transform duration-500 group-hover:scale-110"
                           />
+                          <div className="cursor-pointer absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300 flex items-center justify-center">
+                            <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                              <Button
+                                variant="secondary"
+                                size="sm"
+                                className="bg-white/95 text-black hover:bg-white shadow-lg"
+                              >
+                                <ExternalLink className="w-4 h-4 mr-2" />
+                                View Project
+                              </Button>
+                            </div>
+                          </div>
                         </a>
                       ) : (
-                        <img
-                          src={projectImage?.url || ''}
-                          alt={projectImage?.alt || project.name}
-                          className="w-full object-cover group-hover:scale-105 transition-transform duration-300"
-                        />
+                        <div className="flex items-center justify-center w-full h-full">
+                          <img
+                            src={projectImage.url}
+                            alt={projectImage.alt || project.name}
+                            className="max-w-[60%] max-h-[60%] object-contain"
+                          />
+                        </div>
                       )}
                     </div>
-                  </div>
+                  ) : (
+                    <div className="aspect-[4/3] bg-gradient-to-br from-slate-100 to-slate-200 dark:from-slate-800 dark:to-slate-700 flex items-center justify-center rounded-lg">
+                      <div className="text-slate-500 dark:text-slate-400 text-center">
+                        <div className="w-16 h-16 mx-auto mb-4 border-2 border-slate-300 dark:border-slate-600 rounded-lg flex items-center justify-center">
+                          <span className="text-2xl">📁</span>
+                        </div>
+                        <p className="text-sm font-medium">No image available</p>
+                      </div>
+                    </div>
+                  )}
                 </div>
-              </CardContent>
-            </Card>
+              </div>
+
+              {/* Content Section */}
+              <div className="w-full lg:w-1/2 space-y-6">
+                <div>
+                  <h3 className="text-2xl font-bold text-[var(--heading-primary)] mb-2">
+                    {project.name}
+                  </h3>
+                  {project.subtitle && (
+                    <p className="text-lg text-muted-foreground font-medium mb-4">
+                      {project.subtitle}
+                    </p>
+                  )}
+                </div>
+                {/* Description */}
+                {project.description && (
+                  <div className="prose prose-sm dark:prose-invert text-muted-foreground max-w-none">
+                    <RichTextHTML data={project.description} />
+                  </div>
+                )}
+                {/* Responsibilities */}
+                {project.responsibilities && (
+                  <div>
+                    <h4 className="text-sm font-semibold text-[var(--heading-primary)] mb-3 uppercase tracking-wide">
+                      My Contribution
+                    </h4>
+                    <p className="text-muted-foreground leading-relaxed whitespace-pre-line">
+                      {project.responsibilities}
+                    </p>
+                  </div>
+                )}
+                {/* Skills */}
+                {projectSkills && projectSkills.length > 0 && (
+                  <div>
+                    <h4 className="text-sm font-semibold text-[var(--heading-primary)] mb-3 uppercase tracking-wide">
+                      Technologies Used
+                    </h4>
+                    <div className="flex flex-wrap gap-2">
+                      {projectSkills.map((skill: Skill, skillIndex: number) => (
+                        <Badge
+                          key={skillIndex}
+                          variant="secondary"
+                          className="text-xs bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 px-3 py-1 font-medium"
+                        >
+                          {skill.name}
+                        </Badge>
+                      ))}
+                    </div>
+                  </div>
+                )}{' '}
+              </div>
+            </div>
           )
         })}
       </div>

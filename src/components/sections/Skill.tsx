@@ -9,7 +9,7 @@ export const SkillComp = async ({
   skillCategories: PaginatedDocs<SkillCategory>
 }) => {
   return (
-    <div className="w-full min-h-screen max-w-7xl mx-auto px-4 py-8">
+    <div className="w-full min-h-screen px-16 py-8">
       <div className="mb-8">
         <h2 className="text-4xl md:text-5xl text-center font-extrabold text-[var(--heading-primary)] tracking-tight text-balance mb-6">
           Skills & Technologies

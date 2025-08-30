@@ -15,13 +15,12 @@ export const RichTextHTML = ({
   const [isExpanded, setIsExpanded] = useState(false)
   const html = convertLexicalToHTML({ data })
 
-  // If shouldColapse is false, render normally
   if (!shouldColapse) {
     return <div dangerouslySetInnerHTML={{ __html: html }} />
   }
 
   // If shouldColapse is true, implement see more functionality
-  const maxLength = 600 // Adjust this value as needed
+  const maxLength = 200 // Adjust this value as needed
   const isLongContent = html.length > maxLength
 
   if (!isLongContent) {

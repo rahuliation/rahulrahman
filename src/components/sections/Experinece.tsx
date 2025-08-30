@@ -20,7 +20,7 @@ export const ExperienceComp = async ({
   }
 
   return (
-    <div className="w-full max-w-7xl mx-auto px-16 py-8">
+    <div className="w-full min-h-screen px-4 py-8">
       <div className="mb-8">
         <h2 className="text-4xl md:text-5xl text-center font-extrabold text-[var(--heading-primary)] tracking-tight text-balance mb-6">
           Experience
@@ -91,7 +91,11 @@ export const ExperienceComp = async ({
                     <h4 className="text-sm font-medium mb-2">Related Projects:</h4>
                     <div className="flex flex-wrap gap-2">
                       {experienceProjects.map((project: Project, projectIndex: number) => (
-                        <Badge key={projectIndex} variant="outline" className="text-xs px-3 py-1">
+                        <Badge
+                          key={projectIndex}
+                          variant="outline"
+                          className="text-xs text-white/80 px-3 py-1"
+                        >
                           {project.name}
                         </Badge>
                       ))}

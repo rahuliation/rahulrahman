@@ -79,7 +79,7 @@ export const SideIntro = async () => {
           designation={profile.designation || undefined}
           imageUrl={(profile.image as Media).url || undefined}
         />
-        <div className="flex justify-center mt-12 md:hidden">
+        <div className="flex justify-center mt-12 lg:hidden">
           <ArrowDownButton to="Intro" />
         </div>
       </div>

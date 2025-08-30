@@ -11,7 +11,7 @@ export const IntroductionComp = async ({ profile }: { profile: Profile }) => {
       <div className="w-full">
         {/* Hero Section */}
         <div className="text-center mb-16 w-full">
-          <h1 className="text-4xl md:text-7xl py-2 mx-auto w-4/5 lg:w-2/3  font-extrabold bg-[var(--heading-primary)] text-white/80 tracking-tight text-balance mb-6">
+          <h1 className="text-3xl md:text-7xl py-2 mx-auto w-5/6 lg:w-2/3  font-extrabold bg-[var(--heading-primary)] text-white/80 tracking-tight text-balance mb-6">
             {profile.introTitle}
           </h1>
           <p className="text-xl md:text-2xl text-stone-900 dark:text-slate-300 mb-8 max-w-3xl mx-auto">
@@ -20,6 +20,7 @@ export const IntroductionComp = async ({ profile }: { profile: Profile }) => {
           <div className="flex flex-wrap justify-center gap-2 mb-8">
             {profile.coreSkills?.map((cskill) => (
               <Badge
+                key={cskill.id}
                 variant="outline"
                 className="text-sm px-4 font-extrabold py-4 border-[var(--heading-primary)]"
               >
@@ -45,10 +46,10 @@ export const IntroductionComp = async ({ profile }: { profile: Profile }) => {
                   <CardTitle className="text-xl md:xxl text-white/70">{card.title}</CardTitle>
                 </CardHeader>
                 <CardContent className="text-center">
-                  <CardDescription className="text-md font-medium text-white/80 dark:text-slate-300">
+                  <CardDescription className="h-20text-md font-medium text-white/80 dark:text-slate-300">
                     {card.subtitle}
                   </CardDescription>
-                  <p className="hidden md:block text-sm text-white/60 dark:text-slate-400 mt-2">
+                  <p className="hidden md:block h-12 text-sm text-white/60 dark:text-slate-400 mt-2">
                     {card.description}
                   </p>
                 </CardContent>
@@ -58,7 +59,7 @@ export const IntroductionComp = async ({ profile }: { profile: Profile }) => {
         </div>
 
         {/* Arrow Down Button */}
-        <div className="flex justify-center mt-16">
+        <div className="flex hidden lg:block text-center justify-center mt-16">
           <ArrowDownButton to="Skills" />
         </div>
       </div>
