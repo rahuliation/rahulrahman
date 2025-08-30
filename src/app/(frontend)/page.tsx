@@ -11,6 +11,7 @@ import config from '@payload-config'
 import { Element } from 'react-scroll'
 import Section from '@/components/Section'
 import { EducationComp } from '@/components/sections/Education'
+import { BackgroundEffects } from '@/components/BackgroundEffects'
 
 export default async function HomePage() {
   const payload = await getPayload({ config })
@@ -55,25 +56,30 @@ export default async function HomePage() {
   })
 
   return (
-    <div className="w-full bg-[var(--background)] text-[var(--foreground)]">
-      <Section name="Intro">
-        <IntroductionComp profile={profile} />
-      </Section>
-      <Section name="Skills">
-        <SkillComp skillCategories={skillCategories} />
-      </Section>
-      <Section name="Experience">
-        <ExperienceComp experiences={experiences} />
-      </Section>
-      <Section name="Projects">
-        <ProjectComp projects={projects} />
-      </Section>
-      <Section name="Education">
-        <EducationComp educations={educations} />
-      </Section>
-      <Section name="Contact">
-        <ContactComp profile={profile} />
-      </Section>
+    <div className="w-full bg-[var(--background)] text-[var(--foreground)] relative overflow-hidden">
+      {/* Global Background Effects */}
+      <BackgroundEffects />
+
+      <div className="relative z-10">
+        <Section name="Intro">
+          <IntroductionComp profile={profile} />
+        </Section>
+        <Section name="Skills">
+          <SkillComp skillCategories={skillCategories} />
+        </Section>
+        <Section name="Experience">
+          <ExperienceComp experiences={experiences} />
+        </Section>
+        <Section name="Projects">
+          <ProjectComp projects={projects} />
+        </Section>
+        <Section name="Education">
+          <EducationComp educations={educations} />
+        </Section>
+        <Section name="Contact">
+          <ContactComp profile={profile} />
+        </Section>
+      </div>
     </div>
   )
 }

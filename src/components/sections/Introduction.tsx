@@ -1,9 +1,4 @@
-import { Profile, Skill } from '@/payload-types'
-import { Badge } from '../ui/badge'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../ui/card'
-import { ArrowDownButton } from '../ArrowDownButton'
-import { Link } from 'react-scroll'
-import { ScrollTo } from '../Section'
+import { Profile } from '@/payload-types'
 import { ClientIntroduction } from './ClientIntroduction'
 
 // Main Introduction Component (Server Component)

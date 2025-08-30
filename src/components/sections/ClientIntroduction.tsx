@@ -12,11 +12,11 @@ import { useState, useRef, useEffect } from 'react'
 const GradientBackground = () => {
   return (
     <div className="absolute inset-0 overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-blue-900/20 to-indigo-900/20 animate-pulse" />
+      <div className="absolute inset-0 bg-gradient-to-br from-slate-800/20 via-slate-700/20 to-slate-900/20 animate-pulse" />
       <div className="absolute top-0 left-0 w-full h-full">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute top-3/4 right-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl animate-pulse delay-1000" />
-        <div className="absolute bottom-1/4 left-1/2 w-96 h-96 bg-indigo-500/10 rounded-full blur-3xl animate-pulse delay-2000" />
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-slate-600/10 rounded-full blur-3xl animate-pulse" />
+        <div className="absolute top-3/4 right-1/4 w-96 h-96 bg-slate-500/10 rounded-full blur-3xl animate-pulse delay-1000" />
+        <div className="absolute bottom-1/4 left-1/2 w-96 h-96 bg-slate-700/10 rounded-full blur-3xl animate-pulse delay-2000" />
       </div>
     </div>
   )
@@ -79,7 +79,7 @@ const AnimatedSkillBadge = ({ skill }: { skill: Skill }) => {
         </motion.span>
         {isHovered && (
           <motion.div
-            className="absolute inset-0 bg-gradient-to-r from-purple-500/20 to-blue-500/20"
+            className="absolute inset-0 bg-gradient-to-r from-slate-500/20 to-slate-600/20"
             initial={{ x: '-100%' }}
             animate={{ x: '100%' }}
             transition={{ duration: 0.6, ease: 'easeInOut' }}
@@ -228,10 +228,6 @@ const AnimatedSubtitle = ({ subtitle }: { subtitle: string }) => {
 export const ClientIntroduction = ({ profile }: { profile: Profile }) => {
   return (
     <>
-      {/* Background Effects */}
-      <GradientBackground />
-      <FloatingIcons />
-
       <div className="w-full relative z-10">
         {/* Hero Section */}
         <motion.div
