@@ -16,9 +16,9 @@ async function seedSEO() {
       await payload.updateGlobal({
         slug: 'seo',
         data: {
-          siteTitle: 'Rahul Rahman - Software Engineer | MERN Stack Developer',
+          siteTitle: 'Rahul Rahman Portfolio',
           siteDescription:
-            'Rahul Rahman is a seasoned Software Engineer based in Bangladesh, specializing in MERN (MongoDB, Express.js, React.js, Node.js) development with over 7 years of experience. Expert in Javascript, Typescript, ReactJS, NextJS, and full-stack development.',
+            'Rahul Rahman - A MERN Stack Developer with expertise in building modern web applications',
           siteUrl: 'https://rahulrahman.com',
           siteName: 'Rahul Rahman Portfolio',
           googleAnalyticsId: process.env.GOOGLE_ANALYTICS_ID || '',
@@ -28,10 +28,6 @@ async function seedSEO() {
           robotsTxt: `User-agent: *
 Allow: /
 
-# Disallow admin panel
-Disallow: /admin/
-
-# Sitemap
 Sitemap: https://rahulrahman.com/sitemap.xml`,
           additionalMetaTags: [
             {
@@ -41,35 +37,19 @@ Sitemap: https://rahulrahman.com/sitemap.xml`,
             {
               name: 'keywords',
               content:
-                'Rahul Rahman, Software Engineer, MERN Stack Developer, Full Stack Developer, NodeJS, ReactJS, MongoDB, ExpressJS, NextJS, TypeScript, Bangladesh, Web Development, Software Development',
+                'MERN Stack Developer, React, Node.js, MongoDB, Express, Portfolio, Web Development',
             },
             {
               name: 'theme-color',
               content: '#000000',
             },
-            {
-              name: 'viewport',
-              content: 'width=device-width, initial-scale=1',
-            },
-            {
-              name: 'geo.region',
-              content: 'BD',
-            },
-            {
-              name: 'geo.placename',
-              content: 'Dhaka, Bangladesh',
-            },
-            {
-              name: 'language',
-              content: 'English',
-            },
           ],
           structuredData: {
             personSchema: {
               name: 'Rahul Rahman',
-              jobTitle: 'Software Engineer',
+              jobTitle: 'MERN Stack Developer',
               description:
-                'A seasoned Software Engineer based in Bangladesh, specializing in MERN (MongoDB, Express.js, React.js, Node.js) development with over 7 years of experience in building web and desktop applications.',
+                'A passionate MERN Stack Developer with expertise in building modern web applications',
               url: 'https://rahulrahman.com',
               sameAs: [
                 {
@@ -85,8 +65,7 @@ Sitemap: https://rahulrahman.com/sitemap.xml`,
             },
             websiteSchema: {
               name: 'Rahul Rahman Portfolio',
-              description:
-                'Personal portfolio website showcasing projects, skills, and experience as a Software Engineer specializing in MERN stack development',
+              description: 'Personal portfolio website showcasing projects and skills',
               url: 'https://rahulrahman.com',
             },
           },
@@ -95,12 +74,12 @@ Sitemap: https://rahulrahman.com/sitemap.xml`,
     } else {
       console.log('Creating SEO global...')
 
-      await payload.updateGlobal({
+      await payload.createGlobal({
         slug: 'seo',
         data: {
-          siteTitle: 'Rahul Rahman - Software Engineer | MERN Stack Developer',
+          siteTitle: 'Rahul Rahman Portfolio',
           siteDescription:
-            'Rahul Rahman is a seasoned Software Engineer based in Bangladesh, specializing in MERN (MongoDB, Express.js, React.js, Node.js) development with over 7 years of experience. Expert in Javascript, Typescript, ReactJS, NextJS, and full-stack development.',
+            'Rahul Rahman - A MERN Stack Developer with expertise in building modern web applications',
           siteUrl: 'https://rahulrahman.com',
           siteName: 'Rahul Rahman Portfolio',
           googleAnalyticsId: process.env.GOOGLE_ANALYTICS_ID || '',
@@ -110,10 +89,6 @@ Sitemap: https://rahulrahman.com/sitemap.xml`,
           robotsTxt: `User-agent: *
 Allow: /
 
-# Disallow admin panel
-Disallow: /admin/
-
-# Sitemap
 Sitemap: https://rahulrahman.com/sitemap.xml`,
           additionalMetaTags: [
             {
@@ -123,35 +98,19 @@ Sitemap: https://rahulrahman.com/sitemap.xml`,
             {
               name: 'keywords',
               content:
-                'Rahul Rahman, Software Engineer, MERN Stack Developer, Full Stack Developer, NodeJS, ReactJS, MongoDB, ExpressJS, NextJS, TypeScript, Bangladesh, Web Development, Software Development',
+                'MERN Stack Developer, React, Node.js, MongoDB, Express, Portfolio, Web Development',
             },
             {
               name: 'theme-color',
               content: '#000000',
             },
-            {
-              name: 'viewport',
-              content: 'width=device-width, initial-scale=1',
-            },
-            {
-              name: 'geo.region',
-              content: 'BD',
-            },
-            {
-              name: 'geo.placename',
-              content: 'Dhaka, Bangladesh',
-            },
-            {
-              name: 'language',
-              content: 'English',
-            },
           ],
           structuredData: {
             personSchema: {
               name: 'Rahul Rahman',
-              jobTitle: 'Software Engineer',
+              jobTitle: 'MERN Stack Developer',
               description:
-                'A seasoned Software Engineer based in Bangladesh, specializing in MERN (MongoDB, Express.js, React.js, Node.js) development with over 7 years of experience in building web and desktop applications.',
+                'A passionate MERN Stack Developer with expertise in building modern web applications',
               url: 'https://rahulrahman.com',
               sameAs: [
                 {
@@ -167,8 +126,7 @@ Sitemap: https://rahulrahman.com/sitemap.xml`,
             },
             websiteSchema: {
               name: 'Rahul Rahman Portfolio',
-              description:
-                'Personal portfolio website showcasing projects, skills, and experience as a Software Engineer specializing in MERN stack development',
+              description: 'Personal portfolio website showcasing projects and skills',
               url: 'https://rahulrahman.com',
             },
           },

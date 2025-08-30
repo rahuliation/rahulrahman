@@ -7,14 +7,14 @@ export const SEO: GlobalConfig = {
       name: 'siteTitle',
       type: 'text',
       required: true,
-      defaultValue: 'Rahul Rahman - Software Engineer | MERN Stack Developer',
+      defaultValue: 'Rahul Rahman Portfolio',
     },
     {
       name: 'siteDescription',
       type: 'textarea',
       required: true,
       defaultValue:
-        'Rahul Rahman is a seasoned Software Engineer based in Bangladesh, specializing in MERN (MongoDB, Express.js, React.js, Node.js) development with over 7 years of experience. Expert in Javascript, Typescript, ReactJS, NextJS, and full-stack development.',
+        'Rahul Rahman - A MERN Stack Developer with expertise in building modern web applications',
     },
     {
       name: 'siteUrl',
@@ -107,13 +107,13 @@ export const SEO: GlobalConfig = {
             {
               name: 'jobTitle',
               type: 'text',
-              defaultValue: 'Software Engineer',
+              defaultValue: 'MERN Stack Developer',
             },
             {
               name: 'description',
               type: 'textarea',
               defaultValue:
-                'A seasoned Software Engineer based in Bangladesh, specializing in MERN (MongoDB, Express.js, React.js, Node.js) development with over 7 years of experience in building web and desktop applications.',
+                'A passionate MERN Stack Developer with expertise in building modern web applications',
             },
             {
               name: 'url',
@@ -152,8 +152,7 @@ export const SEO: GlobalConfig = {
             {
               name: 'description',
               type: 'textarea',
-              defaultValue:
-                'Personal portfolio website showcasing projects, skills, and experience as a Software Engineer specializing in MERN stack development',
+              defaultValue: 'Personal portfolio website showcasing projects and skills',
             },
             {
               name: 'url',

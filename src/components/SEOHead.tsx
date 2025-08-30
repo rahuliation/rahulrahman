@@ -1,6 +1,6 @@
 import React from 'react'
 import { Metadata } from 'next'
-import { Media, Seo as SEOType } from '@/payload-types'
+import { Seo as SEOType } from '@/payload-types'
 
 interface SEOHeadProps {
   seo: SEOType
@@ -96,7 +96,7 @@ export const SEOHead: React.FC<SEOHeadProps> = ({
 }) => {
   const title = pageTitle || seo.siteTitle
   const description = pageDescription || seo.siteDescription
-  const image = pageImage || (seo.siteImage as Media)?.url || '/desktop.png'
+  const image = pageImage || seo.siteImage?.url || '/desktop.png'
   const url = pageUrl || seo.siteUrl
 
   // Generate structured data
