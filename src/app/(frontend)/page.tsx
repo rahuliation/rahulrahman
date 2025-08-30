@@ -12,6 +12,7 @@ import { Element } from 'react-scroll'
 import Section from '@/components/Section'
 import { EducationComp } from '@/components/sections/Education'
 import { BackgroundEffects } from '@/components/BackgroundEffects'
+import ScrollToIntroButton from '@/components/ScrollToIntroButton'
 
 export default async function HomePage() {
   const payload = await getPayload({ config })
@@ -80,6 +81,9 @@ export default async function HomePage() {
           <ContactComp profile={profile} />
         </Section>
       </div>
+
+      {/* Fixed scroll to intro button */}
+      <ScrollToIntroButton />
     </div>
   )
 }

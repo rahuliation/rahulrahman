@@ -7,6 +7,7 @@ import { ArrowDownButton } from '../ArrowDownButton'
 import { ScrollTo } from '../Section'
 import { motion, useScroll, useTransform, useSpring, useInView } from 'motion/react'
 import { useState, useRef, useEffect } from 'react'
+import { TypingText } from '../animate-ui/text/typing'
 
 // Animated Gradient Background Component
 const GradientBackground = () => {
@@ -176,31 +177,19 @@ const AnimatedCard = ({ card, index }: { card: any; index: number }) => {
 
 // Animated Title Component with Typing Effect
 const AnimatedTitle = ({ title }: { title: string }) => {
-  const [displayText, setDisplayText] = useState('')
-  const [currentIndex, setCurrentIndex] = useState(0)
-
-  useEffect(() => {
-    if (currentIndex < title.length) {
-      const timeout = setTimeout(() => {
-        setDisplayText((prev) => prev + title[currentIndex])
-        setCurrentIndex((prev) => prev + 1)
-      }, 100)
-      return () => clearTimeout(timeout)
-    }
-  }, [currentIndex, title])
-
   return (
     <motion.h1
-      className="text-3xl md:text-7xl py-2 mx-auto w-5/6 lg:w-2/3 font-extrabold bg-[var(--heading-primary)] text-white/80 tracking-tight text-balance mb-6"
+      className="text-3xl md:text-7xl py-2 mx-auto w-full lg:w-2/3 font-extrabold bg-[var(--heading-primary)] text-white/80 tracking-tight text-balance mb-6"
       initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}
     >
-      {displayText}
-      <motion.span
-        className="inline-block w-1 h-16 bg-white/80 ml-1"
-        animate={{ opacity: [1, 0, 1] }}
-        transition={{ duration: 1, repeat: Infinity }}
+      <TypingText
+        text={title}
+        duration={100}
+        cursor={true}
+        cursorClassName="inline-block w-1 h-8 md:h-16 bg-white/80 ml-1"
+        className="text-3xl md:text-7xl font-extrabold text-white/80 tracking-tight"
       />
     </motion.h1>
   )

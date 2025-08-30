@@ -80,7 +80,7 @@ export const SideIntro = async () => {
           imageUrl={(profile.image as Media).url || undefined}
         />
         <div className="flex justify-center mt-12 lg:hidden">
-          <ArrowDownButton to="Intro" />
+          <ArrowDownButton to="Intro" className="bg-[var(--sidebar)]" />
         </div>
       </div>
     </div>

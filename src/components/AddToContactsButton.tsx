@@ -117,11 +117,11 @@ export const AddToContactsButton = ({
   return (
     <div className="flex justify-center mt-4">
       <Button
-        variant="secondary"
+        variant="outline"
         size="sm"
         onClick={handleAddToContacts}
         disabled={isLoading || !name}
-        className="gap-2"
+        className="gap-2 bg-[var(--sidebar)] text-white/80"
       >
         {isAdded ? (
           <>
