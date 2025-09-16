@@ -40,59 +40,15 @@ const AnimatedProjectCard = ({ project, index }: { project: Project; index: numb
         <div className="relative overflow-hidden rounded-lg shadow-lg">
           {projectImage?.url ? (
             <div className="aspect-[4/3] relative bg-slate-50 dark:bg-slate-800 flex items-center justify-center">
-              {project.projectUrl ? (
-                <MagneticButton
-                  strength={0.1}
-                  className="block w-full h-full group flex items-center justify-center"
-                  onMouseEnter={() => setIsHovered(true)}
-                  onMouseLeave={() => setIsHovered(false)}
-                >
-                  <a
-                    href={project.projectUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="block w-full h-full"
-                  >
-                    <motion.img
-                      src={projectImage.url}
-                      alt={projectImage.alt || project.name}
-                      className="max-w-[60%] max-h-[60%] object-contain"
-                      whileHover={{ scale: 1.1 }}
-                      transition={{ duration: 0.5 }}
-                    />
-                    <motion.div
-                      className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300 flex items-center justify-center"
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: isHovered ? 1 : 0 }}
-                    >
-                      <motion.div
-                        initial={{ scale: 0.8, opacity: 0 }}
-                        animate={{ scale: isHovered ? 1 : 0.8, opacity: isHovered ? 1 : 0 }}
-                        transition={{ duration: 0.3 }}
-                      >
-                        <Button
-                          variant="secondary"
-                          size="sm"
-                          className="bg-white/95 text-black hover:bg-white shadow-lg"
-                        >
-                          <ExternalLink className="w-4 h-4 mr-2" />
-                          View Project
-                        </Button>
-                      </motion.div>
-                    </motion.div>
-                  </a>
-                </MagneticButton>
-              ) : (
-                <div className="flex items-center justify-center w-full h-full">
-                  <motion.img
-                    src={projectImage.url}
-                    alt={projectImage.alt || project.name}
-                    className="max-w-[60%] max-h-[60%] object-contain"
-                    whileHover={{ scale: 1.05 }}
-                    transition={{ duration: 0.3 }}
-                  />
-                </div>
-              )}
+              <div className="flex items-center justify-center w-full h-full">
+                <motion.img
+                  src={projectImage.url}
+                  alt={projectImage.alt || project.name}
+                  className="max-w-[60%] max-h-[60%] object-contain"
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ duration: 0.3 }}
+                />
+              </div>
             </div>
           ) : (
             <div className="aspect-[4/3] bg-gradient-to-br from-slate-100 to-slate-200 dark:from-slate-800 dark:to-slate-700 flex items-center justify-center rounded-lg">
@@ -151,7 +107,7 @@ const AnimatedProjectCard = ({ project, index }: { project: Project; index: numb
         )}
 
         {/* Responsibilities */}
-        {project.responsibilities && (
+        {project.contributions && (
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
@@ -162,7 +118,7 @@ const AnimatedProjectCard = ({ project, index }: { project: Project; index: numb
               My Contribution
             </h4>
             <p className="text-muted-foreground leading-relaxed whitespace-pre-line">
-              {project.responsibilities}
+              <RichTextHTML data={project.contributions} />
             </p>
           </motion.div>
         )}

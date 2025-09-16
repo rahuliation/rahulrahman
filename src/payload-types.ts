@@ -180,9 +180,9 @@ export interface Media {
  */
 export interface SkillCategory {
   id: number;
+  _order?: string | null;
   name: string;
   shouldDisplay?: boolean | null;
-  sortIndex: number;
   skills?:
     | {
         skill?: (number | null) | Skill;
@@ -209,9 +209,24 @@ export interface Skill {
  */
 export interface Project {
   id: number;
+  _order?: string | null;
   name: string;
   subtitle?: string | null;
-  responsibilities: string;
+  contributions: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  };
   description: {
     root: {
       type: string;
@@ -230,7 +245,6 @@ export interface Project {
   projectUrl?: string | null;
   image: number | Media;
   skills?: (number | Skill)[] | null;
-  orderIndex: number;
   updatedAt: string;
   createdAt: string;
 }
@@ -417,9 +431,9 @@ export interface MediaSelect<T extends boolean = true> {
  * via the `definition` "skill-categories_select".
  */
 export interface SkillCategoriesSelect<T extends boolean = true> {
+  _order?: T;
   name?: T;
   shouldDisplay?: T;
-  sortIndex?: T;
   skills?:
     | T
     | {
@@ -444,14 +458,14 @@ export interface SkillsSelect<T extends boolean = true> {
  * via the `definition` "projects_select".
  */
 export interface ProjectsSelect<T extends boolean = true> {
+  _order?: T;
   name?: T;
   subtitle?: T;
-  responsibilities?: T;
+  contributions?: T;
   description?: T;
   projectUrl?: T;
   image?: T;
   skills?: T;
-  orderIndex?: T;
   updatedAt?: T;
   createdAt?: T;
 }

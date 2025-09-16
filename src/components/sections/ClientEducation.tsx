@@ -29,10 +29,10 @@ const AnimatedEducationCard = ({ education, index }: { education: Education; ind
       onHoverStart={() => setIsHovered(true)}
       onHoverEnd={() => setIsHovered(false)}
     >
-      <Card className="group cursor-pointer transition-all duration-300 border-0 bg-gradient-to-br from-slate-800/80 to-slate-900/80 backdrop-blur-sm relative overflow-hidden">
+      <Card className="group cursor-pointer transition-all duration-300 border-0  backdrop-blur-sm relative overflow-hidden">
         {/* Animated background gradient */}
         <motion.div
-          className="absolute inset-0 bg-gradient-to-br from-slate-500/5 to-slate-600/5"
+          className="absolute inset-0 bg-gradient-to-br from-background/5 to-background/5"
           initial={{ opacity: 0 }}
           animate={{ opacity: isHovered ? 1 : 0 }}
           transition={{ duration: 0.3 }}
@@ -54,11 +54,11 @@ const AnimatedEducationCard = ({ education, index }: { education: Education; ind
             <div className="flex items-start gap-4">
               {/* Animated Icon */}
               <motion.div
-                className="w-12 h-12 bg-gradient-to-br from-slate-600/20 to-slate-700/20 rounded-full flex items-center justify-center"
+                className="w-12 h-12 bg-background rounded-full flex items-center justify-center"
                 whileHover={{ scale: 1.1, rotate: 360 }}
                 transition={{ duration: 0.5 }}
               >
-                <GraduationCap className="w-6 h-6 text-slate-300" />
+                <GraduationCap className="w-6 h-6 text-slate-700" />
               </motion.div>
 
               <div>
@@ -88,12 +88,12 @@ const AnimatedEducationCard = ({ education, index }: { education: Education; ind
 
             {/* Year Badge */}
             <motion.div
-              className="flex items-center gap-2 bg-slate-600/30 border border-slate-500/40 rounded-full px-4 py-2"
+              className="flex items-center gap-2 bg-background  rounded-full px-4 py-2"
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.2 }}
             >
-              <Calendar className="w-4 h-4 text-slate-300" />
-              <span className="text-sm font-medium text-slate-200">{education.yearOfPassing}</span>
+              <Calendar className="w-4 h-4 text-slate-700" />
+              <span className="text-sm font-medium text-slate-700">{education.yearOfPassing}</span>
             </motion.div>
           </div>
         </CardHeader>
@@ -106,8 +106,7 @@ const AnimatedEducationCard = ({ education, index }: { education: Education; ind
               transition={{ duration: 0.3 }}
             >
               Successfully completed {education.degree} from {education.institution} in{' '}
-              {education.yearOfPassing}
-              {education.board && ` under ${education.board}`}.
+              {education.yearOfPassing}.
             </motion.p>
           </div>
 
@@ -119,7 +118,7 @@ const AnimatedEducationCard = ({ education, index }: { education: Education; ind
             transition={{ duration: 0.5, delay: index * 0.2 + 0.3 }}
           >
             <Award className="w-4 h-4 text-slate-300" />
-            <span className="text-sm font-medium text-slate-200">Degree Completed</span>
+            <span className="text-sm font-medium text-slate-200">Completed</span>
           </motion.div>
         </CardContent>
       </Card>

@@ -82,7 +82,7 @@ export const ExperienceComp = async ({
 
                 {/* Experience Card */}
                 <div className="ml-8 md:ml-16">
-                  <Card className="group/card relative overflow-hidden border-0 bg-gradient-to-br from-slate-800/80 to-slate-900/80 backdrop-blur-sm shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-[1.02]">
+                  <Card className="group/card relative overflow-hidden border-0 backdrop-blur-sm shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-[1.02]">
                     {/* Animated background gradient */}
                     <div className="absolute inset-0 bg-gradient-to-br from-slate-500/5 to-slate-600/5 opacity-0 group-hover/card:opacity-100 transition-opacity duration-300"></div>
 

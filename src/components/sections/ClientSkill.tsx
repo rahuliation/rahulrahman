@@ -111,7 +111,7 @@ const AnimatedSkillBadge = ({ skill, index }: { skill: any; index: number }) => 
     >
       <Badge
         variant="secondary"
-        className="text-xs bg-gradient-to-r from-slate-600/30 to-slate-700/30 border border-slate-500/40 text-white/90 px-3 py-1 relative overflow-hidden cursor-pointer"
+        className="text-xs bg-background text-slate-900 border border-slate-500/40  px-3 py-1 relative overflow-hidden cursor-pointer"
       >
         <motion.span
           initial={{ opacity: 1 }}
@@ -177,7 +177,7 @@ const AnimatedCategoryCard = ({ category, index }: { category: SkillCategory; in
           transition: { duration: 0.3 },
         }}
       >
-        <Card className="group cursor-pointer transition-all duration-300 border-0 bg-gradient-to-br from-slate-800/80 to-slate-900/80 backdrop-blur-sm relative overflow-hidden">
+        <Card className="group cursor-pointer transition-all duration-300 border-0  backdrop-blur-sm relative overflow-hidden">
           {/* Animated background gradient */}
           <motion.div
             className="absolute inset-0 bg-gradient-to-br from-slate-500/10 to-slate-600/10"
@@ -204,11 +204,11 @@ const AnimatedCategoryCard = ({ category, index }: { category: SkillCategory; in
           <CardHeader className="relative z-10">
             <div className="flex items-center gap-3">
               <motion.div
-                className="w-12 h-12 bg-gradient-to-br from-slate-600/20 to-slate-700/20 rounded-full flex items-center justify-center"
+                className="w-12 h-12 bg-background rounded-full flex items-center justify-center"
                 whileHover={{ scale: 1.1, rotate: 360 }}
                 transition={{ duration: 0.5 }}
               >
-                <IconComponent className="w-6 h-6 text-slate-300" />
+                <IconComponent className="w-6 h-6 text-slate-700" />
               </motion.div>
               <motion.h3
                 className="text-xl font-semibold text-white/80"

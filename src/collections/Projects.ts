@@ -6,6 +6,7 @@ export const Projects: CollectionConfig = {
   admin: {
     useAsTitle: 'name',
   },
+  orderable: true,
   access: {
     read: () => true,
     create: authenticated,
@@ -23,8 +24,8 @@ export const Projects: CollectionConfig = {
       type: 'text',
     },
     {
-      name: 'responsibilities',
-      type: 'textarea',
+      name: 'contributions',
+      type: 'richText',
       required: true,
     },
     {
@@ -47,11 +48,6 @@ export const Projects: CollectionConfig = {
       type: 'relationship',
       relationTo: 'skills',
       hasMany: true,
-    },
-    {
-      name: 'orderIndex',
-      type: 'number',
-      required: true,
     },
   ],
 }

@@ -27,7 +27,6 @@ export default async function HomePage() {
     },
     limit: 1000,
     depth: 2, // Include the related skills
-    sort: 'sortIndex', // Sort by sortIndex field
   })
 
   const experiences = await payload.find({
@@ -42,7 +41,6 @@ export default async function HomePage() {
     collection: 'projects',
     limit: 1000,
     depth: 2, // Include related skills and media
-    sort: '-order', // Sort by creation date, newest first
   })
 
   const educations = await payload.find({

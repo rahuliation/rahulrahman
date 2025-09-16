@@ -12,6 +12,7 @@ export const SkillCategories: CollectionConfig = {
     delete: authenticated,
     update: authenticated,
   },
+  orderable: true,
   fields: [
     {
       name: 'name',
@@ -22,12 +23,6 @@ export const SkillCategories: CollectionConfig = {
       name: 'shouldDisplay',
       type: 'checkbox',
       defaultValue: true,
-    },
-    {
-      name: 'sortIndex',
-      type: 'number',
-      defaultValue: 0,
-      required: true,
     },
     {
       name: 'skills',
