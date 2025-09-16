@@ -11,6 +11,7 @@ import { motion, useInView } from 'motion/react'
 import { useRef, useState } from 'react'
 import { MagneticButton } from '../animate-ui/buttons/magnetic'
 import { GradientText } from '../animate-ui/text/gradient'
+import RichText from '../RichText'
 
 // Animated Project Card Component
 const AnimatedProjectCard = ({ project, index }: { project: Project; index: number }) => {
@@ -117,9 +118,9 @@ const AnimatedProjectCard = ({ project, index }: { project: Project; index: numb
               <Star className="w-4 h-4 text-[var(--background-secondary)]" />
               My Contribution
             </h4>
-            <p className="text-muted-foreground leading-relaxed whitespace-pre-line">
-              <RichTextHTML data={project.contributions} />
-            </p>
+            <div className="text-muted-foreground leading-relaxed">
+              <RichText data={project.contributions} />
+            </div>
           </motion.div>
         )}
 

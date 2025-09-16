@@ -31,7 +31,7 @@ export const RichTextHTML = ({
 
   return (
     <div>
-      <div dangerouslySetInnerHTML={{ __html: truncatedHtml }} />
+      <p dangerouslySetInnerHTML={{ __html: truncatedHtml }} />
       {!isExpanded && (
         <button
           onClick={() => setIsExpanded(true)}
