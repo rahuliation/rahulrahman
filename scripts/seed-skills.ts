@@ -206,7 +206,6 @@ async function seedSkills(): Promise<void> {
           data: {
             name: categoryData.name,
             shouldDisplay: categoryData.shouldDisplay,
-            sortIndex: categoryData.sortIndex,
             skills: skillRelationships,
           },
         })
